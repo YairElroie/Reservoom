@@ -47,7 +47,7 @@ namespace Reservoom.Commands
             {
                 await _hotelStore.MakeReservation(reservation);
                 //await _hotel.MakeReservation(reservation);
-                MessageBox.Show("Success", "Sucess", MessageBoxButton.OK);
+                new Reservoom.Views.SuccessDialog().ShowDialog();
 
                 //_resrevationViewNavigationService.Navigate();
 
