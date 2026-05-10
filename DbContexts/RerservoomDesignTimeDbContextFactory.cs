@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Reservoom.DbContexts
 {
@@ -12,9 +9,23 @@ namespace Reservoom.DbContexts
     {
         public ReservoomDbContext CreateDbContext(string[] args)
         {
-            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite("Data Source=reservoom.db").Options;
+            IConfiguration config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appSettings.json", optional: true)
+                .Build();
 
-            return new ReservoomDbContext(options);
+            string provider = config["DatabaseProvider"] ?? "Sqlite";
+            string connectionString = config.GetConnectionString("Default")
+                ?? "Data Source=reservoom.db";
+
+            var optionsBuilder = new DbContextOptionsBuilder();
+
+            if (provider == "SqlServer")
+                optionsBuilder.UseSqlServer(connectionString);
+            else
+                optionsBuilder.UseSqlite(connectionString);
+
+            return new ReservoomDbContext(optionsBuilder.Options);
         }
     }
 }

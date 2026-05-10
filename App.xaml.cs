@@ -36,8 +36,9 @@ namespace Reservoom
                 .ConfigureServices((hostContext, services) =>
             {
                 string connectinString = hostContext.Configuration.GetConnectionString("Default");
+                string databaseProvider = hostContext.Configuration["DatabaseProvider"] ?? "Sqlite";
 
-                services.AddSingleton(new ReservoomDbContextFactory(connectinString));
+                services.AddSingleton(new ReservoomDbContextFactory(connectinString, databaseProvider));
                 services.AddSingleton<IReservationProvider, DatabaseReservationProvider>();
                 services.AddSingleton<IReservationCreator, DatabaseReservationCreator>();
                 services.AddSingleton<IReservationConflictValidator, DatabaseReservationConflictValidator>();

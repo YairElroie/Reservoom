@@ -8,7 +8,7 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border Background="White" CornerRadius="10" Padding="30">
+    <Border Background="#F0FFF4" CornerRadius="10" Padding="30">
         <Border.Effect>
             <DropShadowEffect BlurRadius="20" Opacity="0.2" ShadowDepth="0"/>
         </Border.Effect>
@@ -32,7 +32,7 @@
                     Width="90"
                     Margin="0,20,0,0"
                     Padding="10,6"
-                    Background="#4CAF50"
+                    Background="#E91E8C"
                     Foreground="White"
                     BorderThickness="0"
                     FontWeight="SemiBold"
@@ -43,14 +43,23 @@
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
-                                    <Border Background="{TemplateBinding Background}"
-                                            CornerRadius="5"
-                                            Padding="{TemplateBinding Padding}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <Border x:Name="Shadow"
+                                            Background="#9C1256"
+                                            CornerRadius="6">
+                                        <Border x:Name="Face"
+                                                Background="#E91E8C"
+                                                CornerRadius="6"
+                                                Margin="0,0,0,4"
+                                                Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#43A047"/>
+                                            <Setter TargetName="Face" Property="Background" Value="#C2185B"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="Face" Property="Margin" Value="0,4,0,0"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
