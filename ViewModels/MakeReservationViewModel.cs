@@ -104,6 +104,7 @@ namespace Reservoom.ViewModels
 
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+        public ICommand InfoCommand { get; }
 
 
         //public MakeReservationViewModel(HotelStore hotelStore, Services.NavigationService reservationViewNavigationService)
@@ -112,6 +113,7 @@ namespace Reservoom.ViewModels
             SubmitCommand = new MakeReservationCommand(this,reservationViewNavigationService, hotelStore);
             //CancelCommand = new NavigateCommand(reservationViewNavigationService);
             CancelCommand = new NavigateCommand<ReservationListingViewModel>(reservationViewNavigationService);
+            InfoCommand = new ShowInfoCommand();
 
             _propertyNameToErrorsDictionary = new Dictionary<string, List<string>>();
         }
