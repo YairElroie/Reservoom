@@ -52,13 +52,13 @@ namespace Reservoom.Commands
                 //_resrevationViewNavigationService.Navigate();
 
             }
-            catch (ReservationConflictException ex)
+            catch (ReservationConflictException)
             {
-                MessageBox.Show("This room is taken", "Error", MessageBoxButton.OK);
+                new Reservoom.Views.ErrorDialog("This room is already taken for the selected dates.").ShowDialog();
             }
-            catch(Exception)
+            catch (Exception)
             {
-                MessageBox.Show("Failed to make reservation", "Error", MessageBoxButton.OK);
+                new Reservoom.Views.ErrorDialog("Failed to make reservation. Please try again.").ShowDialog();
             }
         }
 
