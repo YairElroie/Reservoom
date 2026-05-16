@@ -11,7 +11,7 @@ using Reservoom.DbContexts;
 namespace Reservoom.Migrations
 {
     [DbContext(typeof(ReservoomDbContext))]
-    [Migration("20260405072815_Initial")]
+    [Migration("20260511123633_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
