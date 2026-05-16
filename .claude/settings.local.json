@@ -7,7 +7,19 @@
       "Bash(Remove-Item *)",
       "Bash(dotnet ef *)",
       "Bash(dotnet build *)",
-      "Bash(dotnet run *)"
+      "Bash(dotnet run *)",
+      "Bash(Select-String -Pattern \"error|Error|succeeded|failed\")",
+      "Bash(Select-Object -Last 10)",
+      "PowerShell(node --version; npx --version)",
+      "mcp__filesystem__list_directory",
+      "mcp__filesystem__read_file",
+      "Bash(npm view *)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "filesystem"
+  ]
 }

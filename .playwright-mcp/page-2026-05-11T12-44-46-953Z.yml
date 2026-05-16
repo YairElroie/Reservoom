@@ -1,0 +1,107 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: 
+    - generic [ref=e4]:
+      - banner [ref=e5]:
+        - navigation [ref=e6]:
+          - link "Link to front Page" [ref=e7] [cursor=pointer]:
+            - /url: /he
+            - generic [ref=e8]:
+              - generic [ref=e9]:
+                - img "IMS Logo" [ref=e10]
+                - img "IMS Logo" [ref=e11]
+              - generic [ref=e12]:
+                - generic [ref=e13]: משרד התחבורה והבטיחות בדרכים
+                - generic [ref=e14]: השירות המטאורולוגי הישראלי
+          - text: 
+        - generic "Main Menu":       
+      - generic [ref=e16]:
+        - generic [ref=e18]:
+          - paragraph [ref=e19]: מבזקים
+          - paragraph [ref=e20]: ועידכונים
+        - generic [ref=e21]:
+          - 'link "החל מ-11/05 13:00 עד 11/05 17:00 אזהרה צהובה: עומס חום בבקעת הירדן" [ref=e25] [cursor=pointer]':
+            - /url: /he/warning?warning_type_id=8&day=11/05/2026&gid=18
+            - generic [ref=e27]: החל מ-11/05 13:00 עד 11/05 17:00
+            - generic [ref=e29]:
+              - text: "אזהרה צהובה: עומס חום"
+              - generic [ref=e30]: בבקעת הירדן
+          - text:  
+      - generic "Site Messages"
+      - generic [ref=e33]:
+        - generic [ref=e36]:
+          - generic [ref=e37]: תחזית ארצית ליום Invalid date
+          - generic [ref=e38]: עודכן ב-
+        - generic [ref=e42]:
+          - heading "תחזית לימים הקרובים" [level=2] [ref=e43]
+          - generic [ref=e46]:
+            - combobox "favoriteStateLabel" [ref=e47]: ירושלים
+            - button "Clear Input" [ref=e48] [cursor=pointer]
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - button "יישובים" [ref=e51] [cursor=pointer]
+              - button "גנים לאומים" [ref=e52] [cursor=pointer]
+            - link "לתחזית מפורטת ליישוב" [ref=e54] [cursor=pointer]:
+              - /url: /he/cityPortal
+        - generic [ref=e59]:
+          - generic:
+            - generic:  
+      - contentinfo [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - link "Link to Google Play" [ref=e64] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=il.gov.ims.app
+              - img "Google Play" [ref=e66]
+            - link "Link to App Store" [ref=e68] [cursor=pointer]:
+              - /url: https://apps.apple.com/il/app/israel-meteorological-service/id6745621904
+              - img "App Store" [ref=e70]
+            - link "Link to Facebook page" [ref=e72] [cursor=pointer]:
+              - /url: https://www.facebook.com/ims.gov.il/
+              - img "Facebook" [ref=e74]
+            - link "Link to Youtube page" [ref=e76] [cursor=pointer]:
+              - /url: https://www.youtube.com/channel/UC4gs_uZrEOF3aItzslOYBfA
+              - img "YouTube" [ref=e78]
+            - link "Link to Instagram page" [ref=e80] [cursor=pointer]:
+              - /url: https://www.instagram.com/meteorology.il/
+              - img "Instagram" [ref=e82]
+            - link "Link to Twitter page" [ref=e84] [cursor=pointer]:
+              - /url: https://twitter.com/METEOROLOGY_IL
+              - img "Twitter" [ref=e86]
+            - link "Link to Telegram account" [ref=e88] [cursor=pointer]:
+              - /url: https://t.me/floods_israel
+              - img "Telegram" [ref=e90]
+          - generic "Footer Menu" [ref=e91]:
+            - generic [ref=e92]:
+              - generic [ref=e93]:
+                - text: מידע שימושי
+                - list [ref=e94]:
+                  - listitem [ref=e95]:
+                    - link "מכרזים" [ref=e96] [cursor=pointer]:
+                      - /url: /he/Tenders
+                  - listitem [ref=e97]:
+                    - link "משרות" [ref=e98] [cursor=pointer]:
+                      - /url: /he/Jobs
+                  - listitem [ref=e99]:
+                    - link "צור קשר" [ref=e100] [cursor=pointer]:
+                      - /url: /he/ContactUs
+              - generic [ref=e101]:
+                - text: שירותים
+                - list [ref=e102]:
+                  - listitem [ref=e103]:
+                    - link "RSS" [ref=e104] [cursor=pointer]:
+                      - /url: /he/RSS_ForecastAlerts
+                  - listitem [ref=e105]:
+                    - link "XML קבצי" [ref=e106] [cursor=pointer]:
+                      - /url: /he/CurrentDataXML
+              - generic [ref=e107]:
+                - text: מדיניות האתר
+                - list [ref=e108]:
+                  - listitem [ref=e109]:
+                    - link "זכויות ותנאי שימוש" [ref=e110] [cursor=pointer]:
+                      - /url: /he/termOfuse
+                  - listitem [ref=e111]:
+                    - link "נגישות" [ref=e112] [cursor=pointer]:
+                      - /url: /he/AccessibilityDeclaration
+            - link "Link to GOV.IL" [ref=e113] [cursor=pointer]:
+              - /url: https://www.gov.il/
+  - status [ref=e114]

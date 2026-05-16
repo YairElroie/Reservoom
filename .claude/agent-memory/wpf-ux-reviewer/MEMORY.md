@@ -1,0 +1,1 @@
+- [Dialog Family Conventions](dialog-family-conventions.md) — SuccessDialog/ErrorDialog/InfoDialog structure, themes, code-behind pattern, and known shared gaps
