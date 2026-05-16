@@ -11,17 +11,24 @@ namespace Reservoom.DbContexts
     public class ReservoomDbContextFactory
     {
         private readonly string _connectionString;
+        private readonly string _databaseProvider;
 
-        public ReservoomDbContextFactory(string connectionString)
+        public ReservoomDbContextFactory(string connectionString, string databaseProvider = "Sqlite")
         {
             _connectionString = connectionString;
+            _databaseProvider = databaseProvider;
         }
 
         public ReservoomDbContext CreateDbContext()
         {
-            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(_connectionString).Options;
+            var optionsBuilder = new DbContextOptionsBuilder();
 
-            return new ReservoomDbContext(options);
+            if (_databaseProvider == "SqlServer")
+                optionsBuilder.UseSqlServer(_connectionString);
+            else
+                optionsBuilder.UseSqlite(_connectionString);
+
+            return new ReservoomDbContext(optionsBuilder.Options);
         }
     }
 }

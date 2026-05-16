@@ -30,7 +30,7 @@ View → Command → Store → Model → Service (interface) → Database implem
 ```
 
 - **Models** (`Models/`) — pure domain logic. `Hotel` owns a `ReservationBook`, which delegates to injected service interfaces.
-- **Services** (`Services/`) — three interfaces with database implementations: `IReservationProvider`, `IReservationCreator`, `IReservationConflictValidator`. All hit SQLite via `ReservoomDbContextFactory`.
+- **Services** (`Services/`) — three interfaces with database implementations: `IReservationProvider`, `IReservationCreator`, `IReservationConflictValidator`. All hit the database via `ReservoomDbContextFactory`.
 - **DTOs** (`DTOs/`) — EF Core entities, kept separate from domain models. `ReservationDTO` is what EF maps; domain `Reservation` is what the rest of the app uses.
 - **Stores** (`Stores/`) — singleton application state. `HotelStore` caches reservations in memory and fires `ReservationMade` events. `NavigationStore` holds the active `ViewModelBase` and fires `CurrentViewModelChanged`.
 - **ViewModels** (`ViewModels/`) — bind to Views via `DataContext`. `MainViewModel` exposes `CurrentViewModel` driven by `NavigationStore`. `ReservationListingViewModel` and `MakeReservationViewModel` are the two pages.
@@ -43,4 +43,32 @@ All services, stores, ViewModels, and the `MainWindow` are registered in `App.xa
 
 ### Database
 
-SQLite file (`reservoom.db`) is created next to the exe. Connection string is in `appSettings.json` under `ConnectionStrings:Default`.
+The active database provider is configured in `appSettings.json`. Both SQLite and SQL Server are supported:
+
+**SQLite (default):**
+```json
+{
+  "DatabaseProvider": "Sqlite",
+  "ConnectionStrings": {
+    "Default": "Data Source=reservoom.db"
+  }
+}
+```
+
+**SQL Server:**
+```json
+{
+  "DatabaseProvider": "SqlServer",
+  "ConnectionStrings": {
+    "Default": "Server=localhost;Database=Reservoom;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+}
+```
+
+`ReservoomDbContextFactory` reads `DatabaseProvider` and calls `.UseSqlite()` or `.UseSqlServer()` accordingly. Migrations are applied automatically on startup via `dbContext.Database.Migrate()`.
+
+> **Note:** If you switch providers, delete the existing migrations and regenerate them with the new provider active in `appSettings.json`:
+> ```bash
+> dotnet ef migrations remove
+> dotnet ef migrations add Initial
+> ```
